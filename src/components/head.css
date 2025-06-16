@@ -1,0 +1,56 @@
+ #main{
+      background: linear-gradient(60deg, #fedf2e, #78510a);
+color: #000;
+border: 2px solid #FFD700;
+box-shadow: 0 0 10px #FFD700, 0 0 30px #ffffff80;
+  transition: all 0.4s ease;
+  animation: move 3s ease-in-out infinite;
+  letter-spacing: 1px;
+
+}
+@keyframes move {
+  0% {
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+    transform: translateY(0);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.9);
+    transform: translateY(-4px);
+  }
+  100% {
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+    transform: translateY(0);
+  }
+}
+
+#main{
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    z-index: 1; /* keep it lower than ::after */
+    display: inline-block; /* important for width/height control */
+}
+
+#main::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    transform: translateY(100%); /* instead of bottom: -100% */
+    border-radius: 50%;
+    transition: all ease 0.4s;
+    z-index: -1; /* keep behind the text */
+}
+
+#main:hover::after {
+    transform: translateY(0);
+    border-radius: 0;
+}
+
+
+#main:hover{
+    color: white;
+}
